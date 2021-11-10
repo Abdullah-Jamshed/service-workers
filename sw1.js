@@ -1,5 +1,7 @@
 const CACHE_NAME = "app_version1";
 const allUrls = ["/", "/index.html", "/static/js/main.chunk.js", "/static/js/0.chunk.js", "/static/js/bundle.js"];
+const cacheWhitelist = [];
+
 
 this.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(allUrls)));
@@ -7,7 +9,6 @@ this.addEventListener("install", (event) => {
 
 // Activate the SW
 self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [];
   cacheWhitelist.push(CACHE_NAME);
 
   event.waitUntil(
