@@ -1,6 +1,7 @@
 const staticCacheName = "site-static-v1";
 const dynamicCacheName = "site-dynamic-v1";
 
+// serve worker install
 self.addEventListener("install", function (event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function (cache) {
@@ -9,6 +10,7 @@ self.addEventListener("install", function (event) {
   );
 });
 
+// serve activate
 self.addEventListener("activate", function (event) {
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
