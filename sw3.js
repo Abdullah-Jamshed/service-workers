@@ -27,6 +27,7 @@ self.addEventListener("activate", function (event) {
   );
 });
 
+// network request
 self.addEventListener("fetch", function (event) {
   event.respondWith(
     caches.open(dynamicCacheName).then(function (cache) {
